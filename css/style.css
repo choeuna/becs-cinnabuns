@@ -44,6 +44,10 @@
   justify-content: center;
 }
 
+.is-centered-text {
+  text-align: center;
+}
+
 .is-full-page {
   min-height: 100vh;
 }
@@ -60,6 +64,7 @@
 /* --NAVBAR-- */
 nav {
   position: fixed;
+  top: 0px;
   display: flex;
   justify-content: space-between;
   height: var(--nav-height);
@@ -77,6 +82,7 @@ nav li {
   margin: 10px;
 }
 
+
 /* --HERO-- */
 #landing {
   background-image: url('https://media4.giphy.com/media/7BNw7BCJsx9UKWsjbr/giphy.gif');
@@ -86,15 +92,37 @@ nav li {
   margin-top: var(--nav-height);
 }
 
+
 /* --PRODUCTS--  TODO: see more link */
 .products-list {
-  display: flex;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, var(--product-size));
+  grid-template-rows: repeat(auto-fill, var(--product-size));
 }
 
-.products-list figure {
-  list-style-type: none;
-  display: block;
-  margin: 10px;
+.product {
   width: var(--product-size);
   height: var(--product-size);
+  position: relative;
+}
+
+.product img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.product figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.product figcaption:hover {
+  opacity: 1;
 }
