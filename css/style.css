@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Cinzel+Decorative&family=Cookie&family=Ephesis&family=Hind+Siliguri&family=Leckerli+One&family=Pacifico&family=Quicksand&family=Raleway:wght@200;400&family=Short+Stack&family=Sniglet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Cinzel+Decorative&family=Cookie&family=Ephesis&family=Hind+Siliguri&family=Leckerli+One&family=Pacifico&family=Quicksand:wght@300;400;500;600;700&family=Raleway:wght@200;400&family=Short+Stack&family=Sniglet&display=swap');
 
 /* 
 1. CSS Variables
@@ -6,6 +6,8 @@
 3. Navigation Bar
 4. Hero
 5. Products
+    5.1 Product Fading
+    5.2 Product Scrolling
 6. About Me
 7. Contact
 */
@@ -13,20 +15,24 @@
 
 :root {
   --ff: 'Quicksand', sans-serif;
+  --ff-light: 300;
+  --ff-heavy: 700;
   --f-primary: black;
   --f-secondary: white;
   --f-tertiary: pink;
   
-  --bg-primary: pink;
+  --bg-primary: #EBE8E1;
   --bg-secondary: white;
   --bg-tertiary: grey;
   
   --c-primary: black;
   
   --container-size: 85%;
-  --container-v-margin: 15vh;
+  --container-v-margin: 0vh;
   
   --nav-height: 50px;
+
+  --bun-size: 650px;
   
   --product-size: 200px;
 }
@@ -40,19 +46,39 @@
 }
 
 /* --GENERAL CLASSES-- */
+.section-break {
+  width: 35%;
+  margin: 15vh auto;
+  color: red;
+  background: var(--bg-primary);
+
+}
+
 .is-centered {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
 }
 
 .is-centered-text {
   text-align: center;
 }
 
+.is-bordered {
+  border-bottom: 1px solid black;
+}
+
 .is-full-page {
-  min-height: 100vh;
+  min-height: 95vh;
+}
+
+.is-primary {
+  background-color: var(--bg-primary);
+}
+
+.is-secondary {
+  background-color: var(--bg-secondary);
 }
 
 .container {
@@ -64,15 +90,21 @@
   display: none;
 }
 
+body {
+  background-color: var(--bg-primary);
+}
+
 /* --NAVBAR-- */
 nav {
+  font-weight: var(--ff-heavy);
+  z-index: 3;
   position: fixed;
   top: 0px;
-  display: flex;
-  justify-content: space-between;
   height: var(--nav-height);
   width: 100%;
-  background-color: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav ul {
@@ -88,23 +120,78 @@ nav li {
 
 /* --HERO-- */
 #landing {
-  background-image: url('https://media4.giphy.com/media/7BNw7BCJsx9UKWsjbr/giphy.gif');
+/*  background-image: url('https://media4.giphy.com/media/7BNw7BCJsx9UKWsjbr/giphy.gif');
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: inset 0 0 0 1000px rgba(255,255,255,.5);
+  box-shadow: inset 0 0 0 1000px rgba(255,255,255,.5);*/
   margin-top: var(--nav-height);
 }
 
-
-/* --PRODUCTS--  TODO: see more link */
-.products-list {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fill, var(--product-size));
-  grid-template-rows: repeat(auto-fill, var(--product-size));
-  position: relative;
+#bun-holder {
+  position: absolute;
+  height: var(--bun-size);
+  width: var(--bun-size);
+  left: 0;
+  bottom: 0;
+  /*overflow: hidden;*/
 }
 
+.hero-bun {
+  position: absolute;
+  width: var(--bun-size);
+}
+
+/* these will be replaced with a nicer photo of buns later */
+#hero-bun-front {
+  left: 0;
+  bottom: -150px;
+  z-index: 2;
+}
+
+#hero-bun-back {
+  width: calc(var(--bun-size)*0.9);
+  left: -150px;
+  bottom: 50px;
+}
+
+#landing-text {
+  position: absolute;
+  top: 22vh;
+}
+
+
+#title {
+  font-size: 7em;
+  font-weight: var(--ff-light);
+  padding: 35px;
+  border: 1px solid white;
+  background: rgba(255,255,255,0.7);
+
+}
+
+#motto {
+  font-size: 3em;
+  font-weight: var(--ff-light);
+  padding-left: 10em;
+  padding-top: 30px;
+}
+
+
+/* --PRODUCTS-- */
+.products-list {
+  margin: 20px;
+  width: 100%;
+  border: 2px solid red;
+  border-radius: 30px;
+  display: flex;
+  /*gap: 10px;*/
+  /*grid-template-columns: repeat(auto-fill, var(--product-size));*/
+  /*grid-template-rows: repeat(auto-fill, var(--product-size));*/
+  position: relative;
+  overflow: hidden;
+}
+
+/* --Product Fading-- */
 .product-wrapper {
   overflow: hidden;
 }
@@ -119,7 +206,7 @@ nav li {
 }
 
 .product:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   z-index: 2;
 }
 
@@ -148,7 +235,7 @@ nav li {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: var(--bg-tertiary);
+  /*background: var(--bg-secondary);*/
   mix-blend-mode: multiply;
   opacity: 0;
   transition: 0.5s;
@@ -189,25 +276,4 @@ nav li {
 
 .product-info:hover p {
   opacity: 1;
-}
-
-/*.product img:hover {
-  transform: scale(1.25);
-}
-
-.product figcaption {
-  position: absolute;
-  top: var(--product-size);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.product figcaption:hover, 
-.product figcaption:focus {
-  opacity: 1;
-  top:0;*/
 }

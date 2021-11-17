@@ -4,7 +4,7 @@
     <link rel='stylesheet' href='css/style.css'/>
   </head>
 
-  <nav>
+  <nav class='is-secondary'>
     <span>logo</span>
     <ul>
       <li>Order</li>
@@ -16,14 +16,18 @@
   </nav>
 
   <body>
-    <section id='landing' class='is-centered is-full-page'>
-      <div class='container'>
-        <h1>Bec's Buns</h1>
-        <h3>Freshly baked, every morning</h3>
+    <section id='landing' class='is-centered is-full-page is-primary'>
+      <div id='bun-holder'>
+        <img class='hero-bun' id='hero-bun-back' src='media/bun01.png'></img>
+        <img class='hero-bun' id='hero-bun-front' src='media/bun01.png'></img>
+      </div>
+      <div id='landing-text' class='container is-centered-text'>
+        <h1 id='title'>Bec&rsquo;s Buns</h1>
+        <h3 id='motto'>Freshly baked every morning</h3>
       </div>
     </section>
-
-    <section id='products' class='is-centered is-full-page'>
+    <hr class='section-break'/>
+    <section id='products' class='is-centered is-full-page is-primary'>
       <div class='container'>
         <h2>Our Products</h2>
         <div class='container'>
@@ -208,8 +212,8 @@
         </div>
       </div>
     </section>
-    
-    <section id='about-me' class='is-centered is-full-page'>
+    <hr class='section-break'/>
+    <section id='about-me' class='is-centered is-full-page is-primary'>
       <div class='container'>
         <div class='column'>
           <h2 class='hidden'>About Me</h2>
@@ -219,7 +223,9 @@
       </div>
     </section>
   </body>
-
   <footer>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src='scripts/script.js'></script>
 <html>
