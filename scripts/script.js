@@ -63,14 +63,23 @@
  //   });
  // });
 
+// function getSize(elem) {
+//   // get size of all items in list
+//   // if size of all is less than 
+//   // get product-lists element
+//   // for each child list in product list
+//   // 
+// }
 
-$(document).ready(function() {
-  // if sum of width of products is greater than width of box
-  //    add left scroller
-  var test = function(msg) {
-    alert(msg);
-  };
+// var test = function(msg) {
+//   alert(msg);
+// };  
 
-  test('What's happening);
+// $(document).ready(function() {
+//   // let productLists = $(".product-list");
+//   // for each product list
+//   //    get the size of the product list
+//   //    get the size of the products
 
-})
+
+// })

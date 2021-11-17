@@ -4,7 +4,7 @@
 1. CSS Variables
 2. General Classes
 3. Navigation Bar
-4. Hero
+4. Landing
 5. Products
     5.1 Product Fading
     5.2 Product Scrolling
@@ -23,7 +23,7 @@
   
   --bg-primary: #EBE8E1;
   --bg-secondary: white;
-  --bg-tertiary: grey;
+  --bg-tertiary: #BEB49D;
   
   --c-primary: black;
   
@@ -45,11 +45,10 @@
   font-family: var(--ff);
 }
 
-/* --GENERAL CLASSES-- */
+
+/* =============== GENERAL CLASSES =============== */
 .section-break {
   width: 35%;
-  margin: 15vh auto;
-  color: red;
   background: var(--bg-primary);
 
 }
@@ -81,7 +80,12 @@
   background-color: var(--bg-secondary);
 }
 
+.is-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
 .container {
+  min-height: 20vh;
   width: var(--container-size);
   margin: var(--container-v-margin) auto;
 }
@@ -94,7 +98,29 @@ body {
   background-color: var(--bg-primary);
 }
 
-/* --NAVBAR-- */
+h1, h2, h3, h4 {
+  font-weight: var(--ff-heavy);
+  color: #484951;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+section {
+  margin: 15vh auto;
+}
+
+
+/* =================== NAVBAR ==================== */
 nav {
   font-weight: var(--ff-heavy);
   z-index: 3;
@@ -118,12 +144,26 @@ nav li {
 }
 
 
-/* --HERO-- */
-#landing {
+/* =================== LANDING =================== */
+#title {
 /*  background-image: url('https://media4.giphy.com/media/7BNw7BCJsx9UKWsjbr/giphy.gif');
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: inset 0 0 0 1000px rgba(255,255,255,.5);*/
+  box-shadow: inset 0 0 0 1000px rgba(235,232,225,0.5);*/
+  font-size: 9em;
+  font-weight: var(--ff-heavy);
+  padding: 35px;
+  border: 1px solid white;
+  background: rgba(255,255,255,0.7);
+}
+
+#motto {
+  font-size: 3em;
+  padding-left: 10em;
+  padding-top: 30px;
+}
+
+#landing {
   margin-top: var(--nav-height);
 }
 
@@ -141,17 +181,16 @@ nav li {
   width: var(--bun-size);
 }
 
-/* these will be replaced with a nicer photo of buns later */
 #hero-bun-front {
   left: 0;
-  bottom: -150px;
+  bottom: calc(var(--bun-size) * -0.23);
   z-index: 2;
 }
 
 #hero-bun-back {
-  width: calc(var(--bun-size)*0.9);
-  left: -150px;
-  bottom: 50px;
+  width: calc(var(--bun-size) * 0.9);
+  left: calc(var(--bun-size) * -0.23);
+  bottom: calc(var(--bun-size) * 0.07)
 }
 
 #landing-text {
@@ -160,120 +199,50 @@ nav li {
 }
 
 
-#title {
-  font-size: 7em;
-  font-weight: var(--ff-light);
-  padding: 35px;
-  border: 1px solid white;
-  background: rgba(255,255,255,0.7);
-
+/* ================== PRODUCTS =================== */
+#product-label {
+  /*font-size: 3em;*/
+  margin: 30px;
 }
 
-#motto {
-  font-size: 3em;
-  font-weight: var(--ff-light);
-  padding-left: 10em;
-  padding-top: 30px;
+.product-sublabel {
+  /*font-size: 2em;*/
+  /*text-align: center;*/
 }
 
-
-/* --PRODUCTS-- */
 .products-list {
   margin: 20px;
   width: 100%;
-  border: 2px solid red;
+  border: 1px solid white;
   border-radius: 30px;
   display: flex;
-  /*gap: 10px;*/
-  /*grid-template-columns: repeat(auto-fill, var(--product-size));*/
-  /*grid-template-rows: repeat(auto-fill, var(--product-size));*/
-  position: relative;
-  overflow: hidden;
-}
-
-/* --Product Fading-- */
-.product-wrapper {
-  overflow: hidden;
-}
-
-.product {
-  width: var(--product-size);
-  height: var(--product-size);
-  position: relative;
-  overflow: hidden;
-  transition: 0.5s;
-
-}
-
-.product:hover {
-  transform: scale(1.1);
-  z-index: 2;
+  flex-wrap: wrap;
 }
 
 .product-img {
-  position: absolute;
-  top:0;
-  left:0;
-  width: 100%;
-  height: 100%;
+  width: var(--product-size);
 }
 
-.product-img img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product-img:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  /*background: var(--bg-secondary);*/
-  mix-blend-mode: multiply;
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.product:hover .product-img:before {
-  opacity: 1;
-}
-
-.product-info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
+/* ================== ABOUT ME =================== */
+#about-me-body {
   display: flex;
-  align-items: flex-end;
-  z-index: 1;
+  flex-direction: column;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+  float: left;
+  font-size: 1.75em;
+  padding-top: 5vh;
 }
 
-.product-info h4 {
-  color: var(--f-secondary);
-  text-transform: uppercase;
-  opacity: 0;
-  transition: 0.5s;
-}
 
-.product-info:hover h4 {
-  opacity: 1;
-}
 
-.product-info p {
-  color: var(--f-secondary);
-  opacity: 0;
-  transition: 0.5s;
-}
 
-.product-info:hover p {
-  opacity: 1;
-}
+
+
+
+
+
+
+
+
