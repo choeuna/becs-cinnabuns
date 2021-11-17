@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Cinzel+Decorative&family=Cookie&family=Ephesis&family=Hind+Siliguri&family=Leckerli+One&family=Pacifico&family=Quicksand&family=Raleway:wght@200;400&family=Short+Stack&family=Sniglet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Cinzel+Decorative&family=Cookie&family=Ephesis&family=Hind+Siliguri&family=Leckerli+One&family=Pacifico&family=Quicksand:wght@300;400;500;600;700&family=Raleway:wght@200;400&family=Short+Stack&family=Sniglet&display=swap');
 
 /* 
 1. CSS Variables
 2. General Classes
 3. Navigation Bar
-4. Hero
+4. Landing
 5. Products
+    5.1 Product Fading
+    5.2 Product Scrolling
 6. About Me
 7. Contact
 */
@@ -13,42 +15,77 @@
 
 :root {
   --ff: 'Quicksand', sans-serif;
+  --ff-light: 300;
+  --ff-heavy: 700;
+  --f-primary: black;
+  --f-secondary: white;
+  --f-tertiary: pink;
   
-  --bg-tertiary: gold;
+  --bg-primary: #EBE8E1;
   --bg-secondary: white;
-  --bg-primary: pink;
+  --bg-tertiary: #BEB49D;
   
   --c-primary: black;
   
   --container-size: 85%;
-  --container-v-margin: 15vh;
+  --container-v-margin: 0vh;
   
   --nav-height: 50px;
+
+  --bun-size: 650px;
   
-  --product-size: 150px;
+  --product-size: 200px;
 }
 
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  border: 1px dotted black;
+  /*border: 1px dotted black;*/
   font-family: var(--ff);
 }
 
-/* --GENERAL CLASSES-- */
+
+/* =============== GENERAL CLASSES =============== */
+.section-break {
+  width: 35%;
+  background: var(--bg-primary);
+
+}
+
 .is-centered {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
+}
+
+.is-centered-text {
+  text-align: center;
+}
+
+.is-bordered {
+  border-bottom: 1px solid black;
 }
 
 .is-full-page {
-  min-height: 100vh;
+  min-height: 95vh;
+}
+
+.is-primary {
+  background-color: var(--bg-primary);
+}
+
+.is-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.is-tertiary {
+  background-color: var(--bg-tertiary);
 }
 
 .container {
+  min-height: 20vh;
   width: var(--container-size);
   margin: var(--container-v-margin) auto;
 }
@@ -57,14 +94,43 @@
   display: none;
 }
 
-/* --NAVBAR-- */
+body {
+  background-color: var(--bg-primary);
+}
+
+h1, h2, h3, h4 {
+  font-weight: var(--ff-heavy);
+  color: #484951;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+section {
+  margin: 15vh auto;
+}
+
+
+/* =================== NAVBAR ==================== */
 nav {
+  font-weight: var(--ff-heavy);
+  z-index: 3;
   position: fixed;
-  display: flex;
-  justify-content: space-between;
+  top: 0px;
   height: var(--nav-height);
   width: 100%;
-  background-color: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav ul {
@@ -77,24 +143,106 @@ nav li {
   margin: 10px;
 }
 
-/* --HERO-- */
-#landing {
-  background-image: url('https://media4.giphy.com/media/7BNw7BCJsx9UKWsjbr/giphy.gif');
+
+/* =================== LANDING =================== */
+#title {
+/*  background-image: url('https://media4.giphy.com/media/7BNw7BCJsx9UKWsjbr/giphy.gif');
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: inset 0 0 0 1000px rgba(255,255,255,.5);
+  box-shadow: inset 0 0 0 1000px rgba(235,232,225,0.5);*/
+  font-size: 9em;
+  font-weight: var(--ff-heavy);
+  padding: 35px;
+  border: 1px solid white;
+  background: rgba(255,255,255,0.7);
+}
+
+#motto {
+  font-size: 3em;
+  padding-left: 10em;
+  padding-top: 30px;
+}
+
+#landing {
   margin-top: var(--nav-height);
 }
 
-/* --PRODUCTS--  TODO: see more link */
-.products-list {
-  display: flex;
+#bun-holder {
+  position: absolute;
+  height: var(--bun-size);
+  width: var(--bun-size);
+  left: 0;
+  bottom: 0;
+  /*overflow: hidden;*/
 }
 
-.products-list figure {
-  list-style-type: none;
-  display: block;
-  margin: 10px;
-  width: var(--product-size);
-  height: var(--product-size);
+.hero-bun {
+  position: absolute;
+  width: var(--bun-size);
 }
+
+#hero-bun-front {
+  left: 0;
+  bottom: calc(var(--bun-size) * -0.23);
+  z-index: 2;
+}
+
+#hero-bun-back {
+  width: calc(var(--bun-size) * 0.9);
+  left: calc(var(--bun-size) * -0.23);
+  bottom: calc(var(--bun-size) * 0.07)
+}
+
+#landing-text {
+  position: absolute;
+  top: 22vh;
+}
+
+
+/* ================== PRODUCTS =================== */
+#product-label {
+  /*font-size: 3em;*/
+  margin: 30px;
+}
+
+.product-sublabel {
+  /*font-size: 2em;*/
+  /*text-align: center;*/
+}
+
+.products-list {
+  margin: 20px;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-img {
+  width: var(--product-size);
+}
+
+/* ================== ABOUT ME =================== */
+#about-me-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+  float: left;
+  font-size: 1.75em;
+  padding-top: 5vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
