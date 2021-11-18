@@ -25,7 +25,7 @@ TABLE OF CONTENTS
 
 /* ================ CSS VARIABLES ================ */
 :root {
-  --ff-emph: 'Rampart One', sans-serif;
+  --ff-emph: 'Sail', sans-serif;
   --ff: 'Quicksand', sans-serif;
   --ff-light: 300;
   --ff-heavy: 700;
@@ -59,10 +59,36 @@ TABLE OF CONTENTS
 
 
 /* =============== GENERAL CLASSES =============== */
+body {
+  background-color: var(--bg-primary);
+  color: var(--f-primary);
+}
+
+h1, h2 {
+  font-family: var(--ff-emph);
+}
+
+h2 {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+section {
+  padding: 80px 0px;
+}
+
 .section-break {
   width: 35%;
   background: var(--bg-primary);
-
 }
 
 .is-centered {
@@ -104,32 +130,6 @@ TABLE OF CONTENTS
 
 .hidden {
   display: none;
-}
-
-body {
-  background-color: var(--bg-primary);
-  color: var(--f-primary);
-}
-
-h1, h2, h3 {
-  font-family: var(--ff-emph);
-}
-
-h2 {
-  font-size: 2.25em;
-}
-
-h3 {
-  font-size: 2em;
-}
-
-h4 {
-  font-size: 1.5em;
-}
-
-section {
-  padding-top: 100px;
-  /*padding-bottom: 70px;*/
 }
 
 
@@ -215,10 +215,6 @@ nav li {
 
 
 /* ================== PRODUCTS =================== */
-#product-label {
-  /*font-size: 3em;*/
-  margin: 30px;
-}
 
 .product-sublabel {
   /*font-size: 2em;*/
@@ -246,8 +242,6 @@ nav li {
 
 #about-me-heading {
   grid-column-end: span 2;
-  text-align: center;
-  padding-bottom: 100px;
 }
 
 #about-me-body {
@@ -266,14 +260,17 @@ nav li {
 
 /* ================== CONTACT ==================== */
 #contact-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
+
+#contact-heading {
+  grid-column-end: span 2;
 }
 
 .left, .right {
-  min-width: 500px;
-
+  width: 550px;
+  margin: 0px auto;
 }
 
 .row {
