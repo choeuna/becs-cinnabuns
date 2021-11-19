@@ -7,6 +7,11 @@ Sail - Title only GOOD
 Rampart One - Title only
 */
 
+/*  background-image: url('https://media4.giphy.com/media/7BNw7BCJsx9UKWsjbr/giphy.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(235,232,225,0.5);*/
+
 
 /* 
 
@@ -46,7 +51,7 @@ TABLE OF CONTENTS
 
   --bun-size: 650px;
   
-  --product-size: 200px;
+  --product-size: 220px;
 }
 
 * {
@@ -71,7 +76,7 @@ h1, h2 {
 h2 {
   font-size: 3em;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 h3 {
@@ -108,7 +113,7 @@ section {
 }
 
 .is-full-page {
-  min-height: 93vh;
+  min-height: 100vh;
 }
 
 .is-primary {
@@ -161,10 +166,6 @@ nav li {
 
 /* =================== LANDING =================== */
 #title {
-/*  background-image: url('https://media4.giphy.com/media/7BNw7BCJsx9UKWsjbr/giphy.gif');
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: inset 0 0 0 1000px rgba(235,232,225,0.5);*/
   max-width: 1200px;
   margin: auto;
   padding: 35px;
@@ -183,6 +184,7 @@ nav li {
 
 #landing {
   margin-top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
 }
 
 #bun-holder {
@@ -191,7 +193,7 @@ nav li {
   width: var(--bun-size);
   left: 0;
   bottom: 0;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .hero-bun {
@@ -216,25 +218,7 @@ nav li {
 }
 
 
-/* ================== PRODUCTS =================== */
 
-.product-sublabel {
-  /*font-size: 2em;*/
-  /*text-align: center;*/
-}
-
-.products-list {
-  margin: 20px;
-  width: 100%;
-  border: 1px solid white;
-  border-radius: 30px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.product-img {
-  width: var(--product-size);
-}
 
 /* ================== ABOUT ME =================== */
 #about-me-content {
@@ -262,23 +246,26 @@ nav li {
 
 /* ================== CONTACT ==================== */
 #contact-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr
+  display: flex;
+  flex-flow: column wrap;
+  /*grid-template-columns: 1fr 1fr*/
 }
 
-#contact-heading {
-  grid-column-end: span 2;
+#contact-body {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
 }
 
-.left, .right {
-  width: 550px;
-  margin: 0px auto;
+#contact-availability, #content-reach-me {
+  width: 500px;
+  /*margin: 0px auto;*/
 }
 
 .row {
   font-weight: var(--ff-heavy);
   width: 85%;
-  padding-top: 20px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   font-size: 1.5em;
@@ -291,24 +278,19 @@ nav li {
 }
 
 
+
 /* ================== CAROUSEL =================== */
 
 .carousel {
   position: relative;
-  height: 700px;
-  width: 80%;
+  height: calc(var(--product-size) + 50px);
+  width: calc(var(--product-size) * 4 + 100px);
   margin: 0 auto;
 }
 
-.carousel__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .carousel__track-container {
   position: relative;
-  background: var(--bg-tertiary);
   height: 100%;
   overflow: hidden;
 }
@@ -316,10 +298,14 @@ nav li {
 .carousel__track {
   list-style: none;
   height: 100%;
-  transition: transform 300ms ease-in;
+  transition: transform 0.7s;
 }
 
 .carousel__slide {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /*grid-template-columns: repeat(4, 1fr);*/
   position: absolute;
   top: 0;
   bottom: 0;
@@ -370,10 +356,48 @@ nav li {
 }
 
 
+/* ================== PRODUCTS =================== */
 
 
+.products-list {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.product-img {
+  width: var(--product-size);
+  transition: transform 0.5s;
+}
+
+.product-img:hover {
+  transform: scale(1.1);
+}
 
 
+@media screen and (min-width: 1600px) {
+  :root {
+    --product-size: 250px;
+  }
+}
+
+
+@media screen and (max-width: 1100px) {
+  :root {
+    --product-size: 250px;
+  }
+
+  .carousel {
+    height: calc(var(--product-size) * 2 + 75px);
+    width: calc(var(--product-size) * 2 + 50px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+   --product-size: 175px;
+  }
+}
 
 
 

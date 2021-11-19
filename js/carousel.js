@@ -5,11 +5,14 @@ const nextButton = document.querySelector('.carousel__button--right');
 const prevButton = document.querySelector('.carousel__button--left');
 const dotsNav = document.querySelector('.carousel__nav')
 const dots = Array.from(dotsNav.children);
-const slideWidth = slides[0].getBoundingClientRect().width;
+let trackWidth = track.getBoundingClientRect().width;
+let slideWidth = slides[0].getBoundingClientRect().width;
 
 // FUNCTIONS
-const setSlidePosition = (slide, index) => {
-	slide.style.left = slideWidth * index + 'px';
+const setSlidePosition = (width, slides) => {
+	for (let i = 0; i < slides.length; i++) {
+		slides[i].style.left = width * i + 'px';
+	}
 }
 
 const moveSlide = (track, currentSlide, targetSlide) => {
@@ -36,9 +39,18 @@ const hideShowButtons = (targetIndex, prevButton, nextButton) => {
 	};
 }
 
+// set the slide positions, adjust when window resizes
+setSlidePosition(trackWidth, slides);
 
-slides.forEach(setSlidePosition);
+const resizeObserver = new ResizeObserver(_ => {
+	trackWidth = track.getBoundingClientRect().width;
+	setSlidePosition(trackWidth, slides)
+});
+resizeObserver.observe(document.querySelector('.carousel'));
 
+
+
+// when click left, move slides to the left
 prevButton.addEventListener('click', e => {
 	const currentSlide = track.querySelector('.current-slide');
 	const prevSlide = currentSlide.previousElementSibling;
@@ -50,6 +62,8 @@ prevButton.addEventListener('click', e => {
 	hideShowButtons(prevIndex, prevButton, nextButton);
 });
 
+
+// when click right, mode slides to the right
 nextButton.addEventListener('click', e => {
 	const currentSlide = track.querySelector('.current-slide');
 	const nextSlide = currentSlide.nextElementSibling;
@@ -62,8 +76,9 @@ nextButton.addEventListener('click', e => {
 });
 
 
+// when click nav indicator, move to that slide
 dotsNav.addEventListener('click', e => {
-	const targetDot = e.target.closest('button'); // returns null if not button
+	const targetDot = e.target.closest('button'); 
 	if (!targetDot) return;
 
 	const currentSlide = track.querySelector('.current-slide');
