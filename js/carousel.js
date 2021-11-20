@@ -1,4 +1,4 @@
-// querySelector will look for this in the document and return the first one
+// TODO: update this so it works on multiple carousels
 const track = document.querySelector('.carousel__track');
 const slides = Array.from(track.children);
 const nextButton = document.querySelector('.carousel__button--right');

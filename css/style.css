@@ -292,23 +292,25 @@ nav li {
 .carousel__track-container {
   position: relative;
   height: 100%;
-  overflow: hidden;
+  /*display: flex;*/
+  /*flex-wrap: none;*/
+  /*overflow: hidden;*/
 }
 
 .carousel__track {
+  display: flex;
   list-style: none;
   height: 100%;
+  width:;
   transition: transform 0.7s;
 }
 
 .carousel__slide {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  /*grid-template-columns: repeat(4, 1fr);*/
-  position: absolute;
-  top: 0;
-  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*bottom: 0;*/
   width: 100%;
 }
 
@@ -329,6 +331,7 @@ nav li {
 
 .carousel__button--right {
   right: -40px;
+  transform: scaleX(-1);
 }
 
 .carousel__button img {
@@ -356,9 +359,6 @@ nav li {
 }
 
 
-/* ================== PRODUCTS =================== */
-
-
 .products-list {
   width: 100%;
   display: flex;
@@ -375,7 +375,7 @@ nav li {
 }
 
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1400px) {
   :root {
     --product-size: 250px;
   }
@@ -391,9 +391,13 @@ nav li {
     height: calc(var(--product-size) * 2 + 75px);
     width: calc(var(--product-size) * 2 + 50px);
   }
+
+  .carousel__slide {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 630px) {
   :root {
    --product-size: 175px;
   }
