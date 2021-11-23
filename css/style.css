@@ -169,7 +169,8 @@ nav li {
   max-width: 1200px;
   margin: auto;
   padding: 35px;
-  border: 1px solid white;
+  border: 10px outset lightgrey;
+  border-radius: 3px;
   background: rgba(255,255,255,0.7);
   font-size: 9em;
   font-weight: var(--ff-heavy);
@@ -288,13 +289,10 @@ nav li {
   margin: 0 auto;
 }
 
-
 .carousel__track-container {
   position: relative;
   height: 100%;
-  /*display: flex;*/
-  /*flex-wrap: none;*/
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .carousel__track {
@@ -308,10 +306,7 @@ nav li {
 .carousel__slide {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*bottom: 0;*/
-  width: 100%;
+  min-width: 100%;
 }
 
 .carousel__button {
@@ -358,13 +353,6 @@ nav li {
   background: rgba(0,0,0,0.7);
 }
 
-
-.products-list {
-  width: 100%;
-  display: flex;
-  overflow: hidden;
-}
-
 .product-img {
   width: var(--product-size);
   transition: transform 0.5s;
@@ -372,6 +360,10 @@ nav li {
 
 .product-img:hover {
   transform: scale(1.1);
+}
+
+.product-name {
+  text-align: center;
 }
 
 

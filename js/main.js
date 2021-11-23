@@ -106,7 +106,7 @@ class Carousel extends React.Component {
 
 	moveSlide(trackPosition, newPosition) {
 		let count = this.props.products.length;
-		let max = Math.floor(count / this.state.figsPerSlide) * this.state.slideWidth;
+		let max = Math.ceil(count / this.state.figsPerSlide - 1) * this.state.slideWidth;
 
 		if (newPosition < 0) {
 			newPosition = 0;
@@ -161,13 +161,22 @@ let sweetProducts = [
 	{name: 'ChocoFig', src: 'media/bun01.png'},
 	{name: 'Apple Pie', src: 'media/bun01.png'},
 	{name: 'Pumpkin', src: 'media/bun01.png'},
-	{name: 'Baklava', src: 'media/bun01.png'},
-	{name: 'Apple Pie', src: 'media/bun01.png'},
-	{name: 'Pumpkin', src: 'media/bun01.png'},
-	{name: 'Baklava', src: 'media/bun01.png'},
-	{name: 'Apple Pie', src: 'media/bun01.png'},
-	{name: 'Pumpkin', src: 'media/bun01.png'}
-]
+	{name: 'Fig', src: 'media/bun01.png'},
+	{name: 'Smores', src: 'media/bun01.png'},
+	{name: 'Custard', src: 'media/bun01.png'}
+];
+
+let savouryProducts = [
+	{name: 'Garlic', src: 'media/bun01.png'},
+	{name: 'Cheesy Garlic', src: 'media/bun01.png'},
+	{name: 'Pesto', src: 'media/bun01.png'},
+	{name: 'Pizza', src: 'media/bun01.png'},
+	{name: 'Sundried Tomato', src: 'media/bun01.png'},
+	{name: 'Rosemary', src: 'media/bun01.png'},
+	{name: 'Potato', src: 'media/bun01.png'},
+	{name: 'Mushroom', src: 'media/bun01.png'}
+];
 ReactDOM.render(<Carousel id='sweet-carousel' products={sweetProducts}/>, document.getElementById('sweet-carousel-container'));
+ReactDOM.render(<Carousel id='savoury-carousel' products={savouryProducts}/>, document.getElementById('savoury-carousel-container'));
 
 
