@@ -6,10 +6,10 @@
   </head>
 
   <nav class='is-secondary'>
-    <span><a href='#'>logo</a></span>
+    <span><a href='index.html'>logo</a></span>
     <ul>
       <li><a href='order.html'>Order</a></li>
-      <li><a href='products.html'>Products</a></li>
+      <li><a href='#products'>Products</a></li>
       <li><a href='#gallery'>Gallery</a></li>
       <li><a href='#about-me'>About</a></li>
       <li><a href='#contact'>Contact</a></li>
@@ -17,36 +17,25 @@
   </nav>
 
   <body>
-
-    <section id='landing' class='is-centered is-primary'>
-      <div id='bun-holder'>
-        <img class='hero-bun' id='hero-bun-back' src='media/bun01.png'></img>
-        <img class='hero-bun' id='hero-bun-front' src='media/bun01.png'></img>
-      </div>
-      <div id='landing-text' class='container is-centered-text'>
-        <h1 id='title'>Bec&rsquo;s Buns</h1>
-        <h3 id='motto'>Freshly baked every morning</h3>
-      </div>
-    </section>
-
+    <!-- 
+      - modal
+      - expand box
+      - 
+      
+     -->
     <section id='products' class='is-centered is-full-page is-secondary'>
       <div class='container'>
         <h2 id='product__heading'>Our Products</h2>
         <h3 class='product__sublabel'>Sweet Rolls</h3>
-        <div id='sweet-carousel-container' class='carousel'></div>
-        <h3 class='product__sublabel'>Savoury Rolls</h3>
-        <div id='savoury-carousel-container' class='carousel'></div>
-      </div>
-    </section>
-
-    <section id='about-me' class='is-centered is-primary'>
-      <div id='about-me-content' class='container'>
-        <h2 id='about-me-heading'>About Me</h2>
-        <div>
-          <h3>Hi, I&rsquo;m Becca and these are my buns!</h3>
-          <p id='about-me-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Commodo nulla facilisi nullam vehicula ipsum a arcu. Tristique senectus et netus et malesuada. Sed tempus urna et pharetra pharetra massa massa ultricies mi.</p>
+        <div id='product__sweet-content'>
+          
         </div>
-        <img id='about-me-img' src='media/bun02.jpeg'></div>
+
+        <h3 class='product__sublabel'>Savoury Rolls</h3>
+        <div id='product__savoury-content'>
+          
+        </div>
+
       </div>
     </section>
 
@@ -106,14 +95,12 @@
 
   </body>
   <footer>
-    <!-- TODO -->
   </footer>
-
   <script src='https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
   <script type='text/babel' src='js/config.js'></script>
-  <script type='text/babel' src='js/carousel.js'></script>
+  <script type='text/babel' src='js/products.js'></script>
 <html>
